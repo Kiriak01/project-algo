@@ -1,0 +1,3 @@
+/home/george/Desktop/project-algo/CMakeFiles/edit_cache.dir
+/home/george/Desktop/project-algo/CMakeFiles/rebuild_cache.dir
+/home/george/Desktop/project-algo/CMakeFiles/polygon.dir

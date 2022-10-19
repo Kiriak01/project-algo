@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/george/Desktop/project-algo/includes/headers.hpp
+
+/home/george/Desktop/project-algo/main.cpp
+iostream
+-
+includes/headers.hpp
+/home/george/Desktop/project-algo/includes/headers.hpp
+
