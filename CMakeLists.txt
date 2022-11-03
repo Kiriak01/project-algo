@@ -29,7 +29,8 @@ if ( NOT Boost_FOUND )
 endif()
 
 # include for local directory
-
+add_subdirectory(includes)
+list(APPEND EXTRA_LIBS algorithms)
 # include for local package
 
 
@@ -41,5 +42,5 @@ add_executable( polygon  main.cpp )
 add_to_cached_list( CGAL_EXECUTABLE_TARGETS polygon )
 
 # Link the executable to CGAL and third-party libraries
-target_link_libraries(polygon PRIVATE CGAL::CGAL )
+target_link_libraries(polygon PRIVATE CGAL::CGAL ${EXTRA_LIBS} )
 

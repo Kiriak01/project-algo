@@ -56,17 +56,6 @@ CMAKE_BINARY_DIR = /mnt/c/Users/dimit/OneDrive/Έγγραφα/project-algo
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
-	/usr/bin/cmake-gui -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
-
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
@@ -78,16 +67,27 @@ rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
 
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
+	/usr/bin/cmake-gui -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
+
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/dimit/OneDrive/Έγγραφα/project-algo/CMakeFiles /mnt/c/Users/dimit/OneDrive/Έγγραφα/project-algo/CMakeFiles/progress.marks
-	$(MAKE) -f CMakeFiles/Makefile2 all
+	cd /mnt/c/Users/dimit/OneDrive/Έγγραφα/project-algo && $(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/dimit/OneDrive/Έγγραφα/project-algo/CMakeFiles /mnt/c/Users/dimit/OneDrive/Έγγραφα/project-algo/includes/CMakeFiles/progress.marks
+	cd /mnt/c/Users/dimit/OneDrive/Έγγραφα/project-algo && $(MAKE) -f CMakeFiles/Makefile2 includes/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/dimit/OneDrive/Έγγραφα/project-algo/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	$(MAKE) -f CMakeFiles/Makefile2 clean
+	cd /mnt/c/Users/dimit/OneDrive/Έγγραφα/project-algo && $(MAKE) -f CMakeFiles/Makefile2 includes/clean
 .PHONY : clean
 
 # The main clean target
@@ -97,71 +97,60 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	$(MAKE) -f CMakeFiles/Makefile2 preinstall
+	cd /mnt/c/Users/dimit/OneDrive/Έγγραφα/project-algo && $(MAKE) -f CMakeFiles/Makefile2 includes/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	$(MAKE) -f CMakeFiles/Makefile2 preinstall
+	cd /mnt/c/Users/dimit/OneDrive/Έγγραφα/project-algo && $(MAKE) -f CMakeFiles/Makefile2 includes/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /mnt/c/Users/dimit/OneDrive/Έγγραφα/project-algo && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
-#=============================================================================
-# Target rules for targets named polygon
+# Convenience name for target.
+includes/CMakeFiles/algorithms.dir/rule:
+	cd /mnt/c/Users/dimit/OneDrive/Έγγραφα/project-algo && $(MAKE) -f CMakeFiles/Makefile2 includes/CMakeFiles/algorithms.dir/rule
+.PHONY : includes/CMakeFiles/algorithms.dir/rule
 
-# Build rule for target.
-polygon: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 polygon
-.PHONY : polygon
+# Convenience name for target.
+algorithms: includes/CMakeFiles/algorithms.dir/rule
 
-# fast build rule for target.
-polygon/fast:
-	$(MAKE) -f CMakeFiles/polygon.dir/build.make CMakeFiles/polygon.dir/build
-.PHONY : polygon/fast
-
-#=============================================================================
-# Target rules for targets named algorithms
-
-# Build rule for target.
-algorithms: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 algorithms
 .PHONY : algorithms
 
 # fast build rule for target.
 algorithms/fast:
-	$(MAKE) -f includes/CMakeFiles/algorithms.dir/build.make includes/CMakeFiles/algorithms.dir/build
+	cd /mnt/c/Users/dimit/OneDrive/Έγγραφα/project-algo && $(MAKE) -f includes/CMakeFiles/algorithms.dir/build.make includes/CMakeFiles/algorithms.dir/build
 .PHONY : algorithms/fast
 
-main.o: main.cpp.o
+algorithms.o: algorithms.cpp.o
 
-.PHONY : main.o
+.PHONY : algorithms.o
 
 # target to build an object file
-main.cpp.o:
-	$(MAKE) -f CMakeFiles/polygon.dir/build.make CMakeFiles/polygon.dir/main.cpp.o
-.PHONY : main.cpp.o
+algorithms.cpp.o:
+	cd /mnt/c/Users/dimit/OneDrive/Έγγραφα/project-algo && $(MAKE) -f includes/CMakeFiles/algorithms.dir/build.make includes/CMakeFiles/algorithms.dir/algorithms.cpp.o
+.PHONY : algorithms.cpp.o
 
-main.i: main.cpp.i
+algorithms.i: algorithms.cpp.i
 
-.PHONY : main.i
+.PHONY : algorithms.i
 
 # target to preprocess a source file
-main.cpp.i:
-	$(MAKE) -f CMakeFiles/polygon.dir/build.make CMakeFiles/polygon.dir/main.cpp.i
-.PHONY : main.cpp.i
+algorithms.cpp.i:
+	cd /mnt/c/Users/dimit/OneDrive/Έγγραφα/project-algo && $(MAKE) -f includes/CMakeFiles/algorithms.dir/build.make includes/CMakeFiles/algorithms.dir/algorithms.cpp.i
+.PHONY : algorithms.cpp.i
 
-main.s: main.cpp.s
+algorithms.s: algorithms.cpp.s
 
-.PHONY : main.s
+.PHONY : algorithms.s
 
 # target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) -f CMakeFiles/polygon.dir/build.make CMakeFiles/polygon.dir/main.cpp.s
-.PHONY : main.cpp.s
+algorithms.cpp.s:
+	cd /mnt/c/Users/dimit/OneDrive/Έγγραφα/project-algo && $(MAKE) -f includes/CMakeFiles/algorithms.dir/build.make includes/CMakeFiles/algorithms.dir/algorithms.cpp.s
+.PHONY : algorithms.cpp.s
 
 # Help Target
 help:
@@ -169,13 +158,12 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... polygon"
+	@echo "... edit_cache"
 	@echo "... algorithms"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
+	@echo "... algorithms.o"
+	@echo "... algorithms.i"
+	@echo "... algorithms.s"
 .PHONY : help
 
 
@@ -187,6 +175,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /mnt/c/Users/dimit/OneDrive/Έγγραφα/project-algo && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

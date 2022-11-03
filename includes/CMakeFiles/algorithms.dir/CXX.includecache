@@ -1,0 +1,40 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/mnt/c/Users/dimit/OneDrive/Έγγραφα/project-algo/includes/algorithms.cpp
+iostream
+-
+CGAL/Simple_cartesian.h
+-
+CGAL/algorithm.h
+-
+algorithms.hpp
+/mnt/c/Users/dimit/OneDrive/Έγγραφα/project-algo/includes/algorithms.hpp
+
+/mnt/c/Users/dimit/OneDrive/Έγγραφα/project-algo/includes/algorithms.hpp
+iostream
+-
+CGAL/Simple_cartesian.h
+-
+CGAL/squared_distance_2.h
+-
+CGAL/convex_hull_2.h
+-
+CGAL/property_map.h
+-
+CGAL/intersections.h
+-
+CGAL/Polygon_2.h
+-
+CGAL/Polygon_2_algorithms.h
+-
+CGAL/Point_2.h
+-
+CGAL/Origin.h
+-
+
