@@ -119,30 +119,30 @@ Segment_2 getMaxEdge(std::vector<Segment_2> max_edges, Polygon_2 polygon,std::ve
         if (s == max_edges[0]){
             continue;
         }
-    int sSourceIt, sTargetIt = -1; 
-    sSourceIt = findIterator(vertex_iterators,s.source());  
-    sTargetIt = findIterator(vertex_iterators,s.target());  
-    int s_area; 
-    if ((sSourceIt!=-1) && (sTargetIt!=-1)) {
-        int maxIt = max(sSourceIt,sTargetIt); 
-        polygon.insert(polygon.begin() + maxIt , point); 
-        s_area = abs(polygon.area());
-        if (s_area > max_area) {
-            max_area = s_area; 
-            max_edge = s; 
+        int sSourceIt, sTargetIt = -1; 
+        sSourceIt = findIterator(vertex_iterators,s.source());  
+        sTargetIt = findIterator(vertex_iterators,s.target());  
+        int s_area; 
+        if ((sSourceIt!=-1) && (sTargetIt!=-1)) {
+            int maxIt = max(sSourceIt,sTargetIt); 
+            polygon.insert(polygon.begin() + maxIt , point); 
+            s_area = abs(polygon.area());
+            if (s_area > max_area) {
+                max_area = s_area; 
+                max_edge = s; 
+            }
+            polygon.erase(polygon.begin()+ maxIt); 
+        } else { 
+        if (sourceIt != -1) {
+            polygon.insert(polygon.begin() + sourceIt , point); 
+            s_area = abs(polygon.area());
+            if (s_area > max_area) {
+                max_area = s_area; 
+                max_edge = s; 
+            }
+            polygon.erase(polygon.begin()+ sourceIt);  
         }
-        polygon.erase(polygon.begin()+ maxIt); 
-    } else { 
-    if (sourceIt != -1) {
-        polygon.insert(polygon.begin() + sourceIt , point); 
-        s_area = abs(polygon.area());
-        if (s_area > max_area) {
-            max_area = s_area; 
-            max_edge = s; 
         }
-        polygon.erase(polygon.begin()+ sourceIt);  
-    }
-    }
     }
     return max_edge; 
 }
@@ -171,30 +171,30 @@ Segment_2 getMinEdge(std::vector<Segment_2> min_edges, Polygon_2 polygon,std::ve
         if (s == min_edges[0]){
             continue;
         }
-    int sSourceIt, sTargetIt = -1; 
-    sSourceIt = findIterator(vertex_iterators,s.source());  
-    sTargetIt = findIterator(vertex_iterators,s.target());  
-    int s_area; 
-    if ((sSourceIt!=-1) && (sTargetIt!=-1)) {
-        int maxIt = max(sSourceIt,sTargetIt); 
-        polygon.insert(polygon.begin() + maxIt , point); 
-        s_area = abs(polygon.area());
-        if (s_area < min_area) {
-            min_area = s_area; 
-            min_edge = s; 
+        int sSourceIt, sTargetIt = -1; 
+        sSourceIt = findIterator(vertex_iterators,s.source());  
+        sTargetIt = findIterator(vertex_iterators,s.target());  
+        int s_area; 
+        if ((sSourceIt!=-1) && (sTargetIt!=-1)) {
+            int maxIt = max(sSourceIt,sTargetIt); 
+            polygon.insert(polygon.begin() + maxIt , point); 
+            s_area = abs(polygon.area());
+            if (s_area < min_area) {
+                min_area = s_area; 
+                min_edge = s; 
+            }
+            polygon.erase(polygon.begin()+ maxIt); 
+        } else { 
+        if (sourceIt != -1) {
+            polygon.insert(polygon.begin() + sourceIt , point); 
+            s_area = abs(polygon.area());
+            if (s_area < min_area) {
+                min_area = s_area; 
+                min_edge = s; 
+            }
+            polygon.erase(polygon.begin()+ sourceIt);  
         }
-        polygon.erase(polygon.begin()+ maxIt); 
-    } else { 
-    if (sourceIt != -1) {
-        polygon.insert(polygon.begin() + sourceIt , point); 
-        s_area = abs(polygon.area());
-        if (s_area < min_area) {
-            min_area = s_area; 
-            min_edge = s; 
         }
-        polygon.erase(polygon.begin()+ sourceIt);  
-    }
-    }
     }
     return min_edge; 
 }
