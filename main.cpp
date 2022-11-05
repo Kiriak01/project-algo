@@ -45,7 +45,7 @@ std::vector<Polygon_2>::iterator ret_test_it;
 std::vector<pair<Point_2,int>> vertex_iterators; 
 
 
-for (int i = 3, j = 4; i,j < argPoints.size(); i+=3, j+=3) {               //uncomment when using args
+for (int i = 3, j = 4; i,j < argPoints.size(); i+=3, j+=3) {               
     int x = stoi(argPoints[i]); 
     int y = stoi(argPoints[j]);
     mypoints.push_back(Point_2(x,y)); 
