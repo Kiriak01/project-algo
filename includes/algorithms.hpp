@@ -4,7 +4,6 @@
 #include <CGAL/Polygon_2.h>
 #include <CGAL/Point_2.h>
 
-using namespace std; 
 typedef CGAL::Simple_cartesian<double> K;
 typedef K::Point_2 Point_2;
 typedef CGAL::Polygon_2<K> Polygon_2;
