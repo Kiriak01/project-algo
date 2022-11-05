@@ -21,6 +21,8 @@ typedef std::vector <Segment_2> Segments;
 using std::cout; using std::endl;
 
 int main(int argc, char *argv[]){
+    clock_t start, end;
+    start = clock();
     std::vector<string> argPoints;
 
     ifstream infile(argv[2]);
@@ -58,6 +60,10 @@ int main(int argc, char *argv[]){
     Polygon_2 polyg;
 
     if(algorithim=="Convex_Hull") {polyg = Convex_Hull(edge_selection,p,CV);}
+    end = clock();
+
+    double time_taken = double(end - start) / double(CLOCKS_PER_SEC);
+    time_taken *=1000;
 
     std::cout << "Polygonization"<< std::endl;
     
@@ -71,5 +77,7 @@ int main(int argc, char *argv[]){
    
     std::cout << "Algorithm: "<< algorithim << std::endl;
     std::cout << "area: " << polyg.area() << std::endl;
-    std::cout << "ratio: " << polyg.area()/CV.area() << std::endl;    
+    std::cout << "ratio: " << polyg.area()/CV.area() << std::endl;
+    cout << "Construction time: " << fixed << round(time_taken) << setprecision(5);
+    cout << " ms " << endl;    
 }
