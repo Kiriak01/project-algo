@@ -21,20 +21,10 @@ iostream
 -
 CGAL/Simple_cartesian.h
 -
-CGAL/squared_distance_2.h
--
-CGAL/convex_hull_2.h
--
 CGAL/property_map.h
--
-CGAL/intersections.h
 -
 CGAL/Polygon_2.h
 -
-CGAL/Polygon_2_algorithms.h
--
 CGAL/Point_2.h
--
-CGAL/Origin.h
 -
 

@@ -59,24 +59,28 @@ int main(int argc, char *argv[]){
     // p.push_back(Point_2(2,2));
     // p.push_back(Point_2(3,1));
     // p.push_back(Point_2(4,0));
-    // // //p.push_back(Point_2(4,1));
+    // //p.push_back(Point_2(4,1));
     // p.push_back(Point_2(6,1));
     // p.push_back(Point_2(6,2));
     // p.push_back(Point_2(8,0));
 
-    std::cout << "OUR  SET  OF POINTS " << std::endl;
+    // std::cout << "OUR  SET  OF POINTS " << std::endl;
 
-    for(int i=0; i<p.size(); i++){
-        cout << p[i] << endl;
-    }
+    // for(int i=0; i<p.size(); i++){
+    //     cout << p[i] << endl;
+    // }
 
     int edge_selection=stoi(argv[8]);
+    std::cout << "edge selection"<< std::endl;
+    std::cout << edge_selection<< std::endl;
+    //int edge_selection=3;
     Polygon_2 CV;
     CGAL::convex_hull_2( p.begin(), p.end(), std::back_inserter(CV) );  //computing the convex hull
     string algorithim = argv[6];
     Polygon_2 polyg;
 
-    if(algorithim== "Convex_Hull") {polyg = Convex_Hull(edge_selection,p,CV);}
+    if(algorithim=="Convex_Hull") {polyg = Convex_Hull(edge_selection,p,CV);}
+    //polyg = Convex_Hull(edge_selection,p,CV);
 
     std::cout << "Polygonization"<< std::endl;
     
