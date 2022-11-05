@@ -43,5 +43,5 @@ add_executable( polygon  main.cpp )
 add_to_cached_list( CGAL_EXECUTABLE_TARGETS polygon )
 
 # Link the executable to CGAL and third-party libraries
-target_link_libraries(polygon PRIVATE CGAL::CGAL ${EXTRA_LIBS})
+target_link_libraries(polygon PRIVATE CGAL::CGAL ${EXTRA_LIBS} )
 

@@ -21,6 +21,19 @@ typedef std::vector<Point_2> Points;
 typedef Kernel::Intersect_2 Intersect_2;
 typedef CGAL::Triangle_2<Kernel> Triangle_2;
 
+//valia 
+#include <iostream>
+#include <CGAL/Simple_cartesian.h>
+#include <CGAL/property_map.h>
+#include <CGAL/Polygon_2.h>
+#include <CGAL/Point_2.h>
+
+typedef CGAL::Simple_cartesian<double> K;
+typedef K::Point_2 Point_2;
+typedef CGAL::Polygon_2<K> Polygon_2;
+typedef std::vector<Point_2> Points;
+using std::cout; using std::endl;
+
 Polygon_2 calc_convex_hull(Polygon_2); 
 bool pointIsOnPolygon(Point_2, Polygon_2);  
 bool segmentIsOnPolygon(Segment_2, Polygon_2);
@@ -32,3 +45,6 @@ Segment_2 getMaxEdge(std::vector<Segment_2>, Polygon_2,std::vector<std::pair<Poi
 Segment_2 getMinEdge(std::vector<Segment_2>, Polygon_2,std::vector<std::pair<Point_2,int>>&, Point_2);
 bool sortbysecDec(const Point_2& , const Point_2&); 
 bool sortbysecInc(const Point_2&, const Point_2&);  
+
+//valia 
+Polygon_2 Convex_Hull(int edge_selection, Points p, Polygon_2 CV);
