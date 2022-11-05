@@ -63,21 +63,19 @@ Segment_2 findReplaceableEdge(Polygon_2 polygon, Segment_2 red_edge, Point_2 p,s
             hidden_edges.push_back(p_edge); 
          }
     }
-    // cout << "printing hidden edges" << endl; 
     for (const Segment_2& hidden_edge : hidden_edges) {
         Segment_2 pToMidPoint(p,midpoint(hidden_edge.source(),hidden_edge.target())); 
         int counter = 0;    
         for (const Segment_2& e2 : polygon.edges()) {
             if (hidden_edge == e2) {
                 continue; 
-            }else if (intersection(pToMidPoint,e2)) {  // && intersection(pToSourceSeg,e2) && intersection(pToTargetSeg,e2)
+            }else if (intersection(pToMidPoint,e2)) {  
                 counter++;                                                   
                 continue;                                                               
             }else {
             }
         }
         if (counter == 0) {
-            // cout << hidden_edge << " is a replaceable edge for point " << p << endl; 
             if (max_area_selection) {
                 max_area_edges.push_back(hidden_edge);
                 continue; 
@@ -96,7 +94,6 @@ Segment_2 findReplaceableEdge(Polygon_2 polygon, Segment_2 red_edge, Point_2 p,s
         Segment_2 min_edge = getMinEdge(min_area_edges,polygon,vertex_iterators,p); 
         return min_edge;
     }
-    // insertOnPolygLine(max_edge,polygon,vertex_iterators,mypoints[0])
 }
 
 Segment_2 getMaxEdge(std::vector<Segment_2> max_edges, Polygon_2 polygon,std::vector<std::pair<Point_2,int>>& vertex_iterators, Point_2 point) {
@@ -118,12 +115,10 @@ Segment_2 getMaxEdge(std::vector<Segment_2> max_edges, Polygon_2 polygon,std::ve
     }
     }
 
-// cout << "beggining check for a better edge   " << endl; 
     for (const Segment_2& s : max_edges){
         if (s == max_edges[0]){
             continue;
         }
-    // cout <<"checking for segment " <<  s << endl; 
     int sSourceIt, sTargetIt = -1; 
     sSourceIt = findIterator(vertex_iterators,s.source());  
     sTargetIt = findIterator(vertex_iterators,s.target());  
@@ -149,7 +144,6 @@ Segment_2 getMaxEdge(std::vector<Segment_2> max_edges, Polygon_2 polygon,std::ve
     }
     }
     }
-    // cout << "max edge is " << max_edge << " with area " << max_area << endl; 
     return max_edge; 
 }
 
@@ -173,12 +167,10 @@ Segment_2 getMinEdge(std::vector<Segment_2> min_edges, Polygon_2 polygon,std::ve
     }
     }
 
-// cout << "beggining check for a better edge   " << endl; 
     for (const Segment_2& s : min_edges){
         if (s == min_edges[0]){
             continue;
         }
-    // cout <<"checking for segment " <<  s << endl; 
     int sSourceIt, sTargetIt = -1; 
     sSourceIt = findIterator(vertex_iterators,s.source());  
     sTargetIt = findIterator(vertex_iterators,s.target());  
@@ -204,7 +196,6 @@ Segment_2 getMinEdge(std::vector<Segment_2> min_edges, Polygon_2 polygon,std::ve
     }
     }
     }
-    // cout << "min edge " << min_edge << " with area " << min_area << endl;  
     return min_edge; 
 }
 
@@ -223,10 +214,6 @@ void insertOnPolygLine(Segment_2 e, Polygon_2& polygon, std::vector<std::pair<Po
         polygon.insert(polygon.begin() + sourceIt , point); 
     }
     }
-    // cout << "test polyg line segments after insert of Point " << point << endl; 
-    // for(const Segment_2 e: polygon.edges()){
-    //     std::cout << e << std::endl;
-    // }
     reform(vertex_iterators, polygon);
 }
 
