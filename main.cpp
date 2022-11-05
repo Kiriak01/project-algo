@@ -58,14 +58,14 @@ int edge_selection = stoi(argv[8]);
 
 bool max_area_selection, min_area_selection; 
 if (edge_selection == 1) {
-    bool max_area_selection = false;             //1.4416  1.68693  1.20027  london -----45
-    bool min_area_selection = false; 
+    max_area_selection = false;             //1.4416  1.68693  1.20027  london -----45
+    min_area_selection = false; 
 }else if (edge_selection == 2) {
-    bool max_area_selection = false;             
-    bool min_area_selection = true; 
+    max_area_selection = false;             
+    min_area_selection = true; 
 }else if (edge_selection == 3) {
-    bool max_area_selection = true;             
-    bool min_area_selection = false;  
+    max_area_selection = true;             
+    min_area_selection = false;  
 } else {
     cout << "wrong edge selection given from input. Can only give 1 or 2 or 3." << endl;
     EXIT_FAILURE;
