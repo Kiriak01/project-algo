@@ -1,6 +1,0 @@
-/mnt/c/Users/dimit/OneDrive/Έγγραφα/project-algo/CMakeFiles/edit_cache.dir
-/mnt/c/Users/dimit/OneDrive/Έγγραφα/project-algo/CMakeFiles/rebuild_cache.dir
-/mnt/c/Users/dimit/OneDrive/Έγγραφα/project-algo/CMakeFiles/polygon.dir
-/mnt/c/Users/dimit/OneDrive/Έγγραφα/project-algo/includes/CMakeFiles/rebuild_cache.dir
-/mnt/c/Users/dimit/OneDrive/Έγγραφα/project-algo/includes/CMakeFiles/edit_cache.dir
-/mnt/c/Users/dimit/OneDrive/Έγγραφα/project-algo/includes/CMakeFiles/algorithms.dir
