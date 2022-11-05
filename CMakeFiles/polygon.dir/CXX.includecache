@@ -29,13 +29,9 @@ includes/algorithms.hpp
 /mnt/c/Users/dimit/OneDrive/Έγγραφα/project-algo/includes/algorithms.hpp
 CGAL/Simple_cartesian.h
 -
-CGAL/squared_distance_2.h
--
 CGAL/convex_hull_2.h
 -
 CGAL/property_map.h
--
-CGAL/intersections.h
 -
 CGAL/Polygon_2.h
 -

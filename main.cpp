@@ -4,10 +4,8 @@
 
 #include "includes/algorithms.hpp"
 #include <CGAL/Simple_cartesian.h>
-#include <CGAL/squared_distance_2.h> 
 #include <CGAL/convex_hull_2.h>
 #include <CGAL/property_map.h>
-#include <CGAL/intersections.h>
 #include <CGAL/Polygon_2.h>
 #include <CGAL/Polygon_2_algorithms.h>
 #include <CGAL/Point_2.h>
@@ -18,12 +16,8 @@ typedef CGAL::Simple_cartesian<double> K;
 typedef K::Point_2 Point_2;
 typedef CGAL::Polygon_2<K> Polygon_2;
 typedef K::Segment_2 Segment_2;
-typedef std::istream_iterator<Point_2> point2_iterator;
-typedef std::istream_iterator<Segment_2> segment2_iterator;
 typedef std::vector<Point_2> Points;
 typedef std::vector <Segment_2> Segments;
-typedef std::vector<Point_2>::iterator pveciterator;
-typedef std::vector<Segment_2>::iterator sveciterator;
 using std::cout; using std::endl;
 
 int main(int argc, char *argv[]){
@@ -54,22 +48,6 @@ int main(int argc, char *argv[]){
         p.push_back(Point_2(x,y));
     }
 
-    // Points p;
-    // p.push_back(Point_2(0,0));
-    // p.push_back(Point_2(2,2));
-    // p.push_back(Point_2(3,1));
-    // p.push_back(Point_2(4,0));
-    // //p.push_back(Point_2(4,1));
-    // p.push_back(Point_2(6,1));
-    // p.push_back(Point_2(6,2));
-    // p.push_back(Point_2(8,0));
-
-    // std::cout << "OUR  SET  OF POINTS " << std::endl;
-
-    // for(int i=0; i<p.size(); i++){
-    //     cout << p[i] << endl;
-    // }
-
     int edge_selection=stoi(argv[8]);
     std::cout << "edge selection"<< std::endl;
     std::cout << edge_selection<< std::endl;
@@ -80,7 +58,6 @@ int main(int argc, char *argv[]){
     Polygon_2 polyg;
 
     if(algorithim=="Convex_Hull") {polyg = Convex_Hull(edge_selection,p,CV);}
-    //polyg = Convex_Hull(edge_selection,p,CV);
 
     std::cout << "Polygonization"<< std::endl;
     
