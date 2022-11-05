@@ -4,12 +4,19 @@
 #include "includes/algorithms.hpp"
 #include <fstream>
 #include <string> 
+#include <iostream>
+#include <fstream>
+#include <string>
+
+
 using namespace std; 
-                             
+             
 
 int main(int argc, char* argv[]) 
 {
-                                        ///giorgos if algorithm 
+    string algorithm = argv[6]; 
+    if (algorithm == "incremental" ) { 
+                                        
     clock_t start, end;
     start = clock();
 
@@ -53,13 +60,12 @@ for (int i = 3, j = 4; i,j < argPoints.size(); i+=3, j+=3) {
 };
 
 
-string algorithm = argv[6]; 
 
 int edge_selection = stoi(argv[8]); 
 
 bool max_area_selection, min_area_selection; 
 if (edge_selection == 1) {
-    max_area_selection = false;             //1.4416  1.68693  1.20027  london -----45
+    max_area_selection = false;             
     min_area_selection = false; 
 }else if (edge_selection == 2) {
     max_area_selection = false;             
@@ -158,33 +164,9 @@ cout << "Construction time: " << fixed
 
 }
 
+else if (algorithm == "convexhull") { 
 
 
-//valia 
-
-#include <iostream>
-#include <fstream>
-#include <string>
-
-#include "includes/algorithms.hpp"
-#include <CGAL/Simple_cartesian.h>
-#include <CGAL/convex_hull_2.h>
-#include <CGAL/property_map.h>
-#include <CGAL/Polygon_2.h>
-#include <CGAL/Polygon_2_algorithms.h>
-#include <CGAL/Point_2.h>
-#include <CGAL/Origin.h>
-
-using namespace std; 
-typedef CGAL::Simple_cartesian<double> K;
-typedef K::Point_2 Point_2;
-typedef CGAL::Polygon_2<K> Polygon_2;
-typedef K::Segment_2 Segment_2;
-typedef std::vector<Point_2> Points;
-typedef std::vector <Segment_2> Segments;
-using std::cout; using std::endl;
-
-int main(int argc, char *argv[]){
     clock_t start, end;
     start = clock();
     std::vector<string> argPoints;
@@ -215,15 +197,12 @@ int main(int argc, char *argv[]){
     }
 
     int edge_selection=stoi(argv[8]);
-    std::cout << "edge selection"<< std::endl;
-    std::cout << edge_selection<< std::endl;
-    //int edge_selection=3;
+
     Polygon_2 CV;
     CGAL::convex_hull_2( p.begin(), p.end(), std::back_inserter(CV) );  //computing the convex hull
-    string algorithim = argv[6];
     Polygon_2 polyg;
 
-    if(algorithim=="Convex_Hull") {polyg = Convex_Hull(edge_selection,p,CV);}
+    polyg = Convex_Hull(edge_selection,p,CV);
     end = clock();
 
     double time_taken = double(end - start) / double(CLOCKS_PER_SEC);
@@ -239,9 +218,11 @@ int main(int argc, char *argv[]){
         std::cout << e << std::endl;
     }
    
-    std::cout << "Algorithm: "<< algorithim << std::endl;
+    std::cout << "Algorithm: "<< algorithm << std::endl;
     std::cout << "area: " << polyg.area() << std::endl;
     std::cout << "ratio: " << polyg.area()/CV.area() << std::endl;
     cout << "Construction time: " << fixed << round(time_taken) << setprecision(5);
     cout << " ms " << endl;    
+}
+
 }

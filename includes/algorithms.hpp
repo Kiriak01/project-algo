@@ -11,6 +11,10 @@
 #include <algorithm>   
 #include <vector>
 #include <cmath>
+#include <iostream>
+#include <CGAL/Simple_cartesian.h>
+#include <CGAL/Point_2.h>
+#include <CGAL/Origin.h>
 
 
 typedef CGAL::Simple_cartesian<double> Kernel;
@@ -21,12 +25,7 @@ typedef std::vector<Point_2> Points;
 typedef Kernel::Intersect_2 Intersect_2;
 typedef CGAL::Triangle_2<Kernel> Triangle_2;
 
-//valia 
-#include <iostream>
-#include <CGAL/Simple_cartesian.h>
-#include <CGAL/property_map.h>
-#include <CGAL/Polygon_2.h>
-#include <CGAL/Point_2.h>
+
 
 typedef CGAL::Simple_cartesian<double> K;
 typedef K::Point_2 Point_2;
@@ -46,5 +45,5 @@ Segment_2 getMinEdge(std::vector<Segment_2>, Polygon_2,std::vector<std::pair<Poi
 bool sortbysecDec(const Point_2& , const Point_2&); 
 bool sortbysecInc(const Point_2&, const Point_2&);  
 
-//valia 
+//
 Polygon_2 Convex_Hull(int edge_selection, Points p, Polygon_2 CV);

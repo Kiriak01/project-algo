@@ -1,7 +1,19 @@
 #include "algorithms.hpp"
 #include <iostream>
 #include <vector>
-using namespace std; 
+#include <iostream>
+#include <CGAL/Simple_cartesian.h>
+#include <CGAL/algorithm.h>
+#include "algorithms.hpp"
+ 
+using namespace std;
+typedef CGAL::Simple_cartesian<double> K;
+typedef K::Point_2 Point_2;
+typedef CGAL::Polygon_2<K> Polygon_2;
+typedef K::Segment_2 Segment_2;
+typedef std::vector<Point_2> Points;
+typedef std::vector <Segment_2> Segments;
+using std::cout; using std::endl;
 
 
 
@@ -94,6 +106,7 @@ Segment_2 findReplaceableEdge(Polygon_2 polygon, Segment_2 red_edge, Point_2 p,s
         Segment_2 min_edge = getMinEdge(min_area_edges,polygon,vertex_iterators,p); 
         return min_edge;
     }
+    return hidden_edges[0];
 }
 
 Segment_2 getMaxEdge(std::vector<Segment_2> max_edges, Polygon_2 polygon,std::vector<std::pair<Point_2,int>>& vertex_iterators, Point_2 point) {
@@ -167,6 +180,7 @@ Segment_2 getMinEdge(std::vector<Segment_2> min_edges, Polygon_2 polygon,std::ve
     }
     }
 
+
     for (const Segment_2& s : min_edges){
         if (s == min_edges[0]){
             continue;
@@ -232,21 +246,6 @@ bool sortbysecDec(const Point_2 &a,
 }
 
 
-//valia 
-
-#include <iostream>
-#include <CGAL/Simple_cartesian.h>
-#include <CGAL/algorithm.h>
-#include "algorithms.hpp"
- 
-using namespace std;
-typedef CGAL::Simple_cartesian<double> K;
-typedef K::Point_2 Point_2;
-typedef CGAL::Polygon_2<K> Polygon_2;
-typedef K::Segment_2 Segment_2;
-typedef std::vector<Point_2> Points;
-typedef std::vector <Segment_2> Segments;
-using std::cout; using std::endl;
 
 //function for finding visible edges
 bool is_visible(Segment_2 ed, Polygon_2 A, Point_2 x){
@@ -476,7 +475,7 @@ Polygon_2 Convex_Hull(int edge_selection, Points p, Polygon_2 CV){
                 change(vertex_iterators,A);
             }else{ 
                 int pos_s=pos_max_area(A,x,vertex_iterators);
-                A.insert(A.begin()+pos, x);
+                A.insert(A.begin()+pos_s, x);
                 change(vertex_iterators,A);
             }
 
