@@ -100,9 +100,15 @@ Segment_2 findReplaceableEdge(Polygon_2 polygon, Segment_2 red_edge, Point_2 p,s
         }
     }
     if( max_area_selection) {
-        Segment_2 max_edge = getMaxEdge(max_area_edges,polygon,vertex_iterators,p);
+        if (max_area_edges.empty()) {
+            return hidden_edges[0];
+        }
+        Segment_2 max_edge = getMaxEdge(max_area_edges,polygon,vertex_iterators,p);    
         return max_edge; 
     }else if (min_area_selection) {
+        if (min_area_edges.empty()) {
+            return hidden_edges[0];
+        }
         Segment_2 min_edge = getMinEdge(min_area_edges,polygon,vertex_iterators,p); 
         return min_edge;
     }

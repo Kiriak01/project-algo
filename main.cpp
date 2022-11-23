@@ -117,8 +117,6 @@ vector <Segment_2> red_edges;
  
 while (mypoints.size()) {
     convex_h = calc_convex_hull(polyg_line); 
-    Point_2 lastPoint = polyg_line[polyg_line.size() - 1];
-    std::vector<Segment_2>::iterator it;
     for(const Segment_2& e : convex_h.edges()){ 
         Segment_2 pToMidPoint(mypoints[0],midpoint(e.source(),e.target())); 
         int counter = 0;    
@@ -137,7 +135,7 @@ while (mypoints.size()) {
                 insertOnPolygLine(e,polyg_line,vertex_iterators,mypoints[0]);   
                 break;
             }else { 
-                Segment_2 v1ReplaceableEdge = findReplaceableEdge(polyg_line,e,mypoints[0],vertex_iterators,max_area_selection,min_area_selection);
+                Segment_2 v1ReplaceableEdge = findReplaceableEdge(polyg_line,e,mypoints[0],vertex_iterators,max_area_selection,min_area_selection);   //edw einai to thema 
                 insertOnPolygLine(v1ReplaceableEdge,polyg_line,vertex_iterators,mypoints[0]); 
                 break; 
             }
