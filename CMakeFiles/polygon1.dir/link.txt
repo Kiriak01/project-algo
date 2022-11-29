@@ -1,0 +1,2 @@
+/usr/bin/ar qc libpolygon1.a  CMakeFiles/polygon1.dir/test_polyg.cpp.o
+/usr/bin/ranlib libpolygon1.a

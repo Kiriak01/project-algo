@@ -1,6 +1,8 @@
 # Created by the script cgal_create_CMakeLists
 # This is the CMake script for compiling a set of CGAL applications.
 
+add_library(polygon1 test_polyg.cpp) 
+
 cmake_minimum_required(VERSION 3.1...3.23)
 
 project( polygon )
